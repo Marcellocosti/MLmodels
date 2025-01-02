@@ -1,0 +1,160 @@
+appl:
+  column_to_save_list:
+  - fM
+  - fPt
+data_prep:
+  bkg_mult:
+  - 5.0
+  - 5.0
+  - 5.0
+  - 5.0
+  - 5.0
+  - 5.0
+  dataset_opt: max_signal
+  filt_bkg_mass: (fM < 1.80 and fM > 1.72) or (fM > 1.95 and fM < 2.02)
+  seed_split: 42
+  test_fraction: 0.1
+input:
+  FD: /data/shared/DplFlowML/MLtrees/MC/Train306228/HF_LHC24g2_2P3PDstar_50100_NonPromptDplus_frac0.6.parquet
+  data: /data/shared/DplFlowML/MLtrees/Data/Train305807/HF_LHC23zzh_pass4_small_2P3PDstar_50100.parquet
+  prompt: /data/shared/DplFlowML/MLtrees/MC/Train306228/HF_LHC24g2_2P3PDstar_50100_PromptDplus_frac0.6.parquet
+  treename: null
+ml:
+  hyper_par:
+  - colsample_bytree: 0.97
+    lambda: 0.01
+    learning_rate: 0.029
+    max_depth: 4
+    min_child_weight: 2.7
+    n_estimators: 500
+    n_jobs: 8
+    subsample: 0.9
+    tree_method: hist
+  - colsample_bytree: 0.97
+    lambda: 0.01
+    learning_rate: 0.029
+    max_depth: 4
+    min_child_weight: 2.7
+    n_estimators: 500
+    n_jobs: 8
+    subsample: 0.9
+    tree_method: hist
+  - colsample_bytree: 0.97
+    lambda: 0.01
+    learning_rate: 0.029
+    max_depth: 4
+    min_child_weight: 2.7
+    n_estimators: 500
+    n_jobs: 8
+    subsample: 0.9
+    tree_method: hist
+  - colsample_bytree: 0.97
+    lambda: 0.01
+    learning_rate: 0.029
+    max_depth: 4
+    min_child_weight: 2.7
+    n_estimators: 500
+    n_jobs: 8
+    subsample: 0.9
+    tree_method: hist
+  - colsample_bytree: 0.97
+    lambda: 0.01
+    learning_rate: 0.029
+    max_depth: 4
+    min_child_weight: 2.7
+    n_estimators: 500
+    n_jobs: 8
+    subsample: 0.9
+    tree_method: hist
+  hyper_par_opt:
+    bayes_opt_config:
+      colsample_bytree:
+      - 0.7
+      - 1.0
+      learning_rate:
+      - 0.005
+      - 0.3
+      min_child_weight:
+      - 1
+      - 15
+      n_estimators:
+      - 50
+      - 700
+      subsample:
+      - 0.7
+      - 1.0
+    direction: maximize
+    do_hyp_opt: false
+    initpoints: 5
+    nfolds: 5
+    niter: 5
+    njobs: -1
+    ntrials: 5
+  raw_output: false
+  roc_auc_approach: ovo
+  roc_auc_average: macro
+  saved_models:
+  - /home/mdicosta/flowDplus/MLtraining/opt10trials_maxsgn_test01_dcacuts_DLcuts_bkgmult5/pt1_3/ModelHandler_pT_1_3.pickle
+  - /home/mdicosta/flowDplus/MLtraining/opt10trials_maxsgn_test01_dcacuts_DLcuts_bkgmult5/pt3_5/ModelHandler_pT_3_5.pickle
+  - /home/mdicosta/flowDplus/MLtraining/opt10trials_maxsgn_test01_dcacuts_DLcuts_bkgmult5/pt5_8/ModelHandler_pT_5_8.pickle
+  - /home/mdicosta/flowDplus/MLtraining/opt10trials_maxsgn_test01_dcacuts_DLcuts_bkgmult5/pt8_12/ModelHandler_pT_8_12.pickle
+  - /home/mdicosta/flowDplus/MLtraining/opt10trials_maxsgn_test01_dcacuts_DLcuts_bkgmult5/pt12_24/ModelHandler_pT_12_24.pickle
+  training_columns:
+  - fDecayLength
+  - fDecayLengthXY
+  - fCpa
+  - fCpaXY
+  - fImpactParameter0
+  - fImpactParameter1
+  - fImpactParameter2
+  - fNSigTpcTofPi0
+  - fNSigTpcTofKa1
+  - fNSigTpcTofPi2
+  - fChi2PCA
+output:
+  dir: /home/mdicosta/flowDplus/MLtraining/50100/no_opt_chi2pca_fullsample_frac06/ncands
+  leg_labels:
+    Bkg: Background
+    FD: Feed-down D$^+$
+    Prompt: Prompt D$^+$
+  out_labels:
+    Bkg: Bkg
+    FD: FD
+    Prompt: Prompt
+plots:
+  plotting_columns:
+  - fM
+  - fPt
+  - fPhi
+  - fDecayLength
+  - fDecayLengthXY
+  - fCpa
+  - fCpaXY
+  - fImpactParameter0
+  - fImpactParameter1
+  - fImpactParameter2
+  - fNSigTpcTofPi0
+  - fNSigTpcTofKa1
+  - fNSigTpcTofPi2
+  - fChi2PCA
+  train_test_log: true
+pt_ranges:
+  max:
+  - 3
+  - 5
+  - 8
+  - 12
+  - 24
+  min:
+  - 1
+  - 3
+  - 5
+  - 8
+  - 12
+savecands: true
+savecfg: true
+standalone_appl:
+  inputs: []
+  output_dir: null
+  output_names: []
+  treename: null

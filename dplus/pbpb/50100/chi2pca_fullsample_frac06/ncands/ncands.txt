@@ -1,0 +1,5 @@
+bin0:     BKG: 33485,     PROMPT: 3202,    FD: 3495 
+bin1:     BKG: 65960,     PROMPT: 6958,    FD: 6234 
+bin2:     BKG: 10267,     PROMPT: 5816,    FD: 8165 
+bin3:     BKG: 70285,     PROMPT: 5944,    FD: 8113 
+bin4:     BKG: 20202,     PROMPT: 14900,    FD: 11919 
