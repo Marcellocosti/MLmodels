@@ -1,0 +1,28 @@
+input_file: '/data/shared/DplFlowML/2024/Data/Train319298/AnalysisResults_LHC24ar_pass1_medium.root'
+sparse_path: 'hf-task-dplus/hSparseMass'
+output_file: 'Selections_LHC24ar_medium_parallel_new.root'
+
+# proj_vn: true
+# vn_axis: 3
+# inv_mass_bins: [
+#                 1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,
+#                 1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.00,2.05
+#                 ]
+
+vars:
+  - name: 'mass'
+    axis: 0
+    title: 'M(KK#pi) (GeV/c^{2})'
+  - name: 'pt'
+    axis: 1
+    title: 'p_{T} (GeV/c)'
+    sel_interval: true
+    bins: [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+  - name: 'bkg'
+    axis: 2
+    title: 'Bkg'
+    upp_vals: [0.01, 0.02, 0.03, 0.04, 0.05, 0.07, 0.09, 0.12, 0.15, 0.18]
+  - name: 'FD'
+    title: 'FD'
+    axis: 3
+    low_vals: [0.06, 0.08, 0.10, 0.12, 0.14, 0.17, 0.20]
